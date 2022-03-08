@@ -1,14 +1,17 @@
-// import logo from './logo.svg';
 import React,{ Fragment } from 'react';
+// import React from 'react';
 import './App.css';
 import Navbar from './components/layout/Navbar'
 import Landing from './components/layout/Landing'
 
-const App=() =>
+const App=() =>{
+    return (
     <Fragment>
         <Navbar/>
         <Landing/>
 
     </Fragment>
+    )
+}
 
 export default App;
