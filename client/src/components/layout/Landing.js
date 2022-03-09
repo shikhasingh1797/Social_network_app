@@ -1,8 +1,8 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 
-const Landing = () => {
+const Landing = (props) => {
   return (
     <section className="landing">
       <div className="dark-overlay">
@@ -13,8 +13,8 @@ const Landing = () => {
             other developers
           </p>
           <div className="buttons">
-          <a href='register.html' className="btn btn-primary">Signup</a>
-          <a href='login.html' className="btn btn-light">Login</a>
+          <Link  to='/register' className="btn btn-primary">Signup</Link>
+          <Link to='/login' className="btn btn-light">Login</Link>
           </div>
         </div>
       </div>
