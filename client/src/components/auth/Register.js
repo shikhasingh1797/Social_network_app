@@ -1,8 +1,12 @@
+// import React from 'react';
 // import React, { Fragment , useState} from 'react';
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
 import { Link} from 'react-router-dom';
-import axois from 'axios';
-const Register = ({ setAlert, register, isAuthenticated }) => {
+import { setAlert } from '../../actions/alert';
+import PropTypes from 'prop-types'
+
+const Register = ({setAlert}) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -15,30 +19,12 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
   const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
-  const onSubmit =async (e) => {
+  const onSubmit =(e) => {
     e.preventDefault();
     if (password !== password2) {
-      console.log('Passwords do not match', 'danger');
+      setAlert('Passwords do not match', 'danger');
     } else {
-      const newUser={
-        name,
-        email,
-        password
-      }
-      try{
-        const config={
-          headers:{
-            'Content-Type':'application/json'
-          }
-        }
-        const body=JSON.stringify(newUser)
-        const res=await axois.post('/api/users',body,config)
-        console.log(res.data)
-
-      }catch(err){
-        console.error(err.response.data)
-
-      }
+      console.log({ name, email, password });
     }
   };
 
@@ -102,18 +88,18 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
   );
 };
 
-// Register.propTypes = {
-//   setAlert: PropTypes.func.isRequired,
-//   register: PropTypes.func.isRequired,
-//   isAuthenticated: PropTypes.bool
-// };
+Register.propTypes = {
+  setAlert: PropTypes.func.isRequired,
+  // register: PropTypes.func.isRequired,
+  // isAuthenticated: PropTypes.bool
+};
 
 // const mapStateToProps = (state) => ({
 //   isAuthenticated: state.auth.isAuthenticated
 // });
 
 
-export default Register;
+export default connect(null,{setAlert})(Register);
 
 
 // This from is showing 256 line in css
