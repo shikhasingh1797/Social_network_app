@@ -10,6 +10,7 @@ import Dashboard from './components/dashboard/Dashboard';
 import PrivateRoute from './components/routing/PrivateRoute';
 import CreateProfile from './components/profile-forms/CreateProfile';
 import EditProfile from './components/profile-forms/EditProfile';
+import Profile from './components/profile/Profile';
 import Profiles from './components/profiles/Profiles';
 import ProfileItem from './components/profiles/ProfileItem';
 
@@ -44,6 +45,7 @@ const App=() =>{
                     <Route path='/register' element={<Register/>}/>
                     <Route path='/login' element={<Login/>}/>
                     <Route path='/profiles' element={<Profiles/>}/>
+                    <Route path='/profile/:id' element={<Profile/>}/>
                     {/* <PrivateRoute exact path='/dashboard' component={<Dashboard/>}/> */}
 
 
